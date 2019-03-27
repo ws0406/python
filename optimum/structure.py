@@ -6,7 +6,7 @@ from collections import deque, defaultdict, Counter
 # random_list = [random.randint(0,100) for i in range(30)]
 
 # 计时器
-def min_time(name, number=10, repeat=50):
+def min_time(name, number=10, repeat=50, *args):
     '''
     对目标函数执行时间进行计时，默认跑50遍（repeat=50），每遍跑10次（number=10）,取50遍中用时最短者
     '''
@@ -56,10 +56,7 @@ def use_deque(): # 耗时 0.0018352560000494123
     for i in range(0, len(ran_list)):
         index = bisect.bisect(new_list, ran_list[i])
         new_list.insert(index, ran_list[i])
-ran_list = [96, 14, 86, 13, 91, 94, 10, 50, 86, 76, 57, 11, 26, 15, 20, 45, 15, 
-    81, 88, 41, 41, 87, 22, 44, 29, 11, 27, 75, 56, 38]
-s = Counter(ran_list)
-print(s)
+
 # min_time(name="charu()")
 # min_time(name="use_bisect_1()")
 # min_time(name='use_bisect_2()')
