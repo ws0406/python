@@ -31,9 +31,10 @@ print(A.__dict__)
 print(A.__dict__['_A__instance'])
 # __instance不知道为什么，在__dict__中的键叫_A__instance
 
-A.__dict__['_A__instance'].pop(B)  #这样可以删除原来创建的B的单例
+A.__dict__['_A__instance'].pop(B)  #这样可以删除原来创建的B的单例, 接下来如果有实例化B，还会重新创建一个单例
 d_1 = B()
 d_2 = B()
-print(d_1, d_2)
-print(b_1, b_2)
+# 由于A中的__instance中的B已经被删除了，所以会创建一个新的实例
+print(d_1, d_2) #<__main__.B object at 0x035B1990> <__main__.B object at 0x035B1990>
+print(b_1, b_2) #<__main__.B object at 0x035B1990> <__main__.B object at 0x035B1990>
 
